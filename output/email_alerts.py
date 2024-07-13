@@ -10,8 +10,6 @@ sender_email = os.environ.get("SENDER_EMAIL")
 receiver_email = os.environ.get("RECEIVER_EMAIL")
 password = os.environ.get("PASSKEY")
 
-print(sender_email, receiver_email, password)
-
 
 def send_email(message):
     context = ssl.create_default_context()

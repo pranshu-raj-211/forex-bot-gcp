@@ -1,1 +1,3 @@
 google-cloud-pubsub
+python-dotenv
+pydantic

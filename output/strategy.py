@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from abc import ABC, abstractmethod
+from email_alerts import send_email
 
 
 class StrategyValue(BaseModel):
@@ -17,6 +18,8 @@ class BaseStrategy:
         self.ma_type = value.ma_type
         self.ma_period = value.ma_period
         self.series = value.series
+        self.open_trades = 0
+        self.symbol = "EURUSD"
 
     @abstractmethod
     def init_long(self, queue):
@@ -34,10 +37,13 @@ class BaseStrategy:
     def go_short(self, queue):
         pass
 
-    @abstractmethod
     def enter(self, message: str):
-        pass
+        send_email(message)
 
     @abstractmethod
     def exit(self, message: str):
+        send_email(message)
+
+    @abstractmethod
+    def run(self):
         pass
