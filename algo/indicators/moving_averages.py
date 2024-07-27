@@ -1,8 +1,8 @@
-from abc import ABC, abstractmethod
+from abc import abstractmethod
 from collections import deque
 
 
-class MovingAverage(ABC):
+class MovingAverage():
     def __init__(self, ma_period: int) -> None:
         self.ma_period = ma_period
         # todo: set the max length later, this one is pretty arbitrary and not good for use
@@ -13,7 +13,7 @@ class MovingAverage(ABC):
     def update(self, value, price_queue: deque):
         pass
 
-    @abstractmethod
+
     def get_most_recent_value(self):
         len_queue = len(self.indicator_queue)
         if len_queue == 0:
