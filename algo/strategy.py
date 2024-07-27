@@ -47,7 +47,18 @@ class BaseStrategy:
     def go_short(self, queue):
         pass
 
-    def enter(self, message: str):
+    def enter(self, timestamp:str, direction:str):
+        '''
+        Starts process to send an email to the intended receiver with appropriate message for entry.
+        
+        Params:
+        - timestamp: (str) Timestamp of the moment the signal was generated on.
+        - direction: (str) The direction to enter in a trade.'''
+        message = f'''\
+Subject: Trade {direction} on {self.symbol}
+
+Crossover occured at {timestamp}, check out the indicators to trade now (direction - {direction}).
+'''
         send_email(message)
 
     @abstractmethod
