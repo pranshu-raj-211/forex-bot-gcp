@@ -1,0 +1,5 @@
+google-cloud-pubsub
+fastapi[standard]
+pydantic
+python-dotenv
+google-cloud-logging
